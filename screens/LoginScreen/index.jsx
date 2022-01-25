@@ -5,20 +5,30 @@ import {
   View,
   StatusBar,
   Dimensions,
+  Text,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+
+import Header from "../../components/Header";
+import SafeArea from "../../components/SafeArea";
 import Input from "../../components/Input";
 function LoginScreen() {
   const { width, height } = Dimensions.get("window");
 
   return (
-    <SafeAreaView
-      style={{
-        backgroundColor: "#ffffff",
-        flex: 1,
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-      }}
-    >
-      <View style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
+    <SafeArea>
+      <View style={{ flex: 1 }}>
+        <Header
+          left={
+            <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
+              <AntDesign name="left" size={24} color="blue" />
+              <View style={{ paddingLeft: 4 }}>
+                <Text style={{ color: "#057cff", fontSize: 20 }}>SignUp</Text>
+              </View>
+            </View>
+          }
+          title="SignIn"
+        />
         <View
           style={{
             marginHorizontal: width * 0.05,
@@ -27,13 +37,79 @@ function LoginScreen() {
           }}
         >
           <Input
-            placeholder="Enter email"
+            placeholder="Email"
             style={{ backgroundColor: "white" }}
             label="Email"
           />
         </View>
+        <View
+          style={{
+            marginHorizontal: width * 0.05,
+            width: width * 0.9,
+            marginTop: 24,
+          }}
+        >
+          <Input
+            placeholder="Password"
+            style={{ backgroundColor: "white" }}
+            label="Password"
+          />
+        </View>
+        <View
+          style={{
+            marginHorizontal: width * 0.05,
+            width: width * 0.9,
+            marginTop: 24,
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              backgroundColor: "black",
+              padding: 24,
+              textAlign: "center",
+              fontSize: 20,
+            }}
+          >
+            Sign in
+          </Text>
+        </View>
+        <View
+          style={{
+            marginHorizontal: width * 0.05,
+            width: width * 0.9,
+          }}
+        >
+          <Text
+            style={{
+              color: "black",
+              paddingVertical: 4,
+              textAlign: "center",
+              fontSize: 20,
+            }}
+          >
+            Don'nt have an account?{" "}
+          </Text>
+        </View>
+        <View
+          style={{
+            marginHorizontal: width * 0.05,
+            width: width * 0.9,
+          }}
+        >
+          <Text
+            style={{
+              color: "#057cff",
+              paddingVertical: 4,
+              textAlign: "center",
+              fontSize: 20,
+            }}
+          >
+            Sign Up
+          </Text>
+        </View>
       </View>
-    </SafeAreaView>
+    </SafeArea>
   );
 }
 
