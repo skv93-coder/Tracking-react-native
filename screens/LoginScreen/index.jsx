@@ -6,19 +6,20 @@ import {
   StatusBar,
   Dimensions,
   Text,
+  TouchableOpacity,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import Header from "../../components/Header";
 import SafeArea from "../../components/SafeArea";
 import Input from "../../components/Input";
-function LoginScreen() {
+function LoginScreen({ navigation }) {
   const { width, height } = Dimensions.get("window");
 
   return (
     <SafeArea>
       <View style={{ flex: 1 }}>
-        <Header
+        {/* <Header
           left={
             <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
               <AntDesign name="left" size={24} color="blue" />
@@ -28,7 +29,7 @@ function LoginScreen() {
             </View>
           }
           title="SignIn"
-        />
+        /> */}
         <View
           style={{
             marginHorizontal: width * 0.05,
@@ -40,6 +41,7 @@ function LoginScreen() {
             placeholder="Email"
             style={{ backgroundColor: "white" }}
             label="Email"
+            key="Email"
           />
         </View>
         <View
@@ -53,6 +55,7 @@ function LoginScreen() {
             placeholder="Password"
             style={{ backgroundColor: "white" }}
             label="Password"
+            key="Password"
           />
         </View>
         <View
@@ -91,23 +94,29 @@ function LoginScreen() {
             Don'nt have an account?{" "}
           </Text>
         </View>
-        <View
-          style={{
-            marginHorizontal: width * 0.05,
-            width: width * 0.9,
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Profile", { name: "Jane" });
           }}
         >
-          <Text
+          <View
             style={{
-              color: "#057cff",
-              paddingVertical: 4,
-              textAlign: "center",
-              fontSize: 20,
+              marginHorizontal: width * 0.05,
+              width: width * 0.9,
             }}
           >
-            Sign Up
-          </Text>
-        </View>
+            <Text
+              style={{
+                color: "#057cff",
+                paddingVertical: 4,
+                textAlign: "center",
+                fontSize: 20,
+              }}
+            >
+              Sign Up
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeArea>
   );
