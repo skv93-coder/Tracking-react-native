@@ -96,7 +96,7 @@ function LoginScreen({ navigation }) {
         </View>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Profile", { name: "Jane" });
+            navigation.navigate("SignIn", { name: "Jane" });
           }}
         >
           <View

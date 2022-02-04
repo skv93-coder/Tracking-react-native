@@ -17,7 +17,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="SignIn"
+          name="LogIn"
           component={LoginScreen}
           // options={({ route, navigation }) => {
           //   console.log("route", route);
@@ -28,14 +28,15 @@ export default function App() {
         <Stack.Screen
           options={({ route, navigation }) => {
             return {
-              headerLeft: () => (
-                <TouchableOpacity onPress={handlePress.bind(null, navigation)}>
-                  <AntDesign name="arrowleft" size={24} color="black" />
-                </TouchableOpacity>
+              headerTitle: () => (
+                <View>
+                  <Text style={{ fontSize: 20 }}>Profile</Text>
+                </View>
               ),
+              headerTitleAlign: "center",
             };
           }}
-          name="Profile"
+          name="SignIn"
           component={SignupScreen}
         />
       </Stack.Navigator>
