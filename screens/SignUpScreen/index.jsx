@@ -3,7 +3,7 @@ import { Dimensions, View, Text, TouchableOpacity } from "react-native";
 import Input from "../../components/Input";
 import SafeArea from "../../components/SafeArea";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 function SignUpScreen({ navigation }) {
   return (
@@ -103,11 +103,3 @@ function SignUpScreen({ navigation }) {
 }
 
 export default SignUpScreen;
-/**
- * React 
-Next
-Redux
-React router
-Node js
-mongoose
- */
